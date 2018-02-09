@@ -15,20 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 @SpringBootApplication
 public class HelloWorldApplication {
 
-	@GetMapping
-	@ResponseBody
-	String home() {
-		return "Hello world";
-		
-	}
-	
-	@PostMapping("signup/process")
-	public ModelAndView processSignup(ModelMap model) {
-		
-		model.addAttribute("test", "Hello World");
-		return new ModelAndView("index", model);
-		
-	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(HelloWorldApplication.class, args);

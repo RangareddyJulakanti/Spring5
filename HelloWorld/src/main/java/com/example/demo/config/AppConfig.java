@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
@@ -49,6 +50,12 @@ public class AppConfig {
 	public HibernateTransactionManager hibernateTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager manager = new HibernateTransactionManager(sessionFactory);
 		return manager;
+	}
+	
+	@Bean
+	public HibernateTransactionManager getTransactionManage(SessionFactory sessionFactory) {
+		HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager(sessionFactory);
+		return hibernateTransactionManager;
 	}
 
 }
